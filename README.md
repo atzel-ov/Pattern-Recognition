@@ -6,4 +6,4 @@ Exercises for the course "Statistical Modeling and Pattern Recognition TEL 311"
 
 Set of exercises 1:
 
-Bayes decision theory and classificatioon & Dimensionality reduction using : 1) Principal Component Analysis (PCA), 2) Fisher's Linear Discriminant (LDA).
+Bayes decision theory and classification & Dimensionality reduction using : 1) Principal Component Analysis (PCA), 2) Fisher's Linear Discriminant (LDA).
