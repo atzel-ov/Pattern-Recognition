@@ -1,6 +1,6 @@
 # PatternRecognition
 
-![image](https://user-images.githubusercontent.com/83914255/233068035-dfe1500f-4e4f-4fe4-9657-bc6edb13ab12.png)
+![image](https://user-images.githubusercontent.com/83914255/233069847-d2139c80-334f-4683-815e-f208f21003c0.png)
 
 Exercises for the course "Statistical Modeling and Pattern Recognition TEL 311"
 
