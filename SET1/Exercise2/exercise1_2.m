@@ -39,21 +39,21 @@ aRatio = [aRatio_C1 aRatio_C2];
 minAspectRatio = min(aRatio);
 maxAspectRatio = max(aRatio);
 
+R1 = 8;
+R2 = 31;
+
 figure 
-imagesc(reshape(train_C1_images(25,:,:),28,28))
+imagesc(reshape(train_C1_images(R1,:,:),28,28))
 colormap("gray")
-
-rectangle('Position', [min_col_C1(25), min_row_C1(25), width_C1(25), height_C1(25)]', 'EdgeColor', 'r', 'LineWidth', 2)
-
-
-title(sprintf('Digit %d', 25))
+rectangle('Position', [min_col_C1(R1)-.5, min_row_C1(R1)-.5, width_C1(R1), height_C1(R1)]', 'EdgeColor', 'r', 'LineWidth', 3)
+title(sprintf('Digit %d', R1))
 
 
 figure
-imagesc(reshape(train_C2_images(29,:,:),28,28))
+imagesc(reshape(train_C2_images(R2,:,:),28,28))
 colormap("gray")
-rectangle('Position', [ min_col_C2(29), min_row_C2(29), width_C2(29), height_C2(29)], 'EdgeColor', 'r', 'LineWidth', 2)
-title(sprintf('Digit %d', 29))
+rectangle('Position', [ min_col_C2(R2)-.5, min_row_C2(R2)-.5, width_C2(R2), height_C2(R2)], 'EdgeColor', 'r', 'LineWidth', 3)
+title(sprintf('Digit %d', R2))
 
 
 
