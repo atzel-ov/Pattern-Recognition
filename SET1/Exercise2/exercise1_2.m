@@ -12,11 +12,12 @@ data = load(data_file);
 % Read the test data
 [test_C1_indices, test_C2_indices,test_C1_images,test_C2_images] = read_data(data.testX,data.testY.');
 
+indices = [train_C1_indices train_C2_indices];
 
 %% Compute Aspect Ratio
 
 %Computing the aspect Ration of each digit and saving it to the
-%corresponding aray 
+%corresponding array 
 
 aRatio_C1 = zeros(size(train_C1_indices,2),1)';
 
@@ -39,8 +40,8 @@ aRatio = [aRatio_C1 aRatio_C2];
 minAspectRatio = min(aRatio);
 maxAspectRatio = max(aRatio);
 
-R1 = 8;
-R2 = 31;
+R1 = 50;
+R2 = 37;
 
 figure 
 imagesc(reshape(train_C1_images(R1,:,:),28,28))
@@ -61,25 +62,64 @@ title(sprintf('Digit %d', R2))
 
 
 % Prior Probabilities
-PC1 = ...
-PC2 = ...
+PC1 = size(train_C1_indices,2)/size(indices,2);
+PC2 = size(train_C2_indices,2)/size(indices,2);
 
 
-% Likelihoods
-PgivenC1 = ...
-PgivenC2 = ...
+mu1 = (1/size(train_C1_indices,2)).*(sum(aRatio_C1));
+mu2 = (1/size(train_C2_indices,2)).*(sum(aRatio_C2));
+var1 = (1/size(train_C1_indices,2)).*(sum((aRatio_C1-mu1).^2));
+var2 = (1/size(train_C2_indices,2)).*(sum((aRatio_C2-mu2).^2));
 
 
 
-% Posterior Probabilities
-PC1givenL = ...
-PC2givenL = ...
 
-% Classification result
-BayesClass = ...
+% Likelihoods - Posterior Probabilities
 
-% Count misclassified digits
-count_errors = ...
+% Test data, aspect ratio of the test images
+
+
+count_errors = 0;
+
+for i = 1:size(test_C1_indices,2)
+    x_C1(i) = computeAspectRatio(reshape(test_C1_images(i,:,:),28,28));
+    PgivenC1(i) = normpdf(x_C1(i),mu1,sqrt(var1));
+    PgivenC2(i) = normpdf(x_C1(i),mu2,sqrt(var2));
+
+    PC1givenL(i) = PC1*PgivenC1(i);
+    PC2givenL(i) = PC2*PgivenC2(i);
+    
+    % Classification result
+    BayesClass1 = PC1givenL(i) - PC2givenL(i);
+    
+    % Count misclassified digits
+    if BayesClass1 < 0
+        count_errors = count_errors +1;
+    end
+
+end
+
+
+
+for i = 1:size(test_C2_indices,2)
+    x_C2(i) = computeAspectRatio(reshape(test_C2_images(i,:,:),28,28));
+    PgivenC1(i) = normpdf(x_C2(i),mu1,sqrt(var1));
+    PgivenC2(i) = normpdf(x_C2(i),mu2,sqrt(var2));
+
+    PC1givenL(i) = PC1*PgivenC1(i);
+    PC2givenL(i) = PC2*PgivenC2(i);
+    
+    % Classification result
+    BayesClass2 = PC2givenL(i) - PC1givenL(i);
+    
+    % Count misclassified digits
+    if BayesClass2 < 0
+        count_errors = count_errors +1;
+    end
+
+end
+
+
 
 % Total Classification Error (percentage)
-Error = ...
+Error = count_errors/(size(test_C1_indices,2)+size(test_C2_indices,2));
