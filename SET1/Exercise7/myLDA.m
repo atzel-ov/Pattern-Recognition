@@ -29,7 +29,7 @@ function A = myLDA(Samples, Labels, NewDim)
         %Calculate the Within Class Scatter Matrix
 	    Sw= Sw + P(i)*cov(Samples(Labels == i-1,:));
         %Calculate the Global Mean
-	    m0= m0 + mean(NumFeatures*mu(i,:));%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	    m0= m0 + mean(NumFeatures*mu(i,:));
     end
 
 
