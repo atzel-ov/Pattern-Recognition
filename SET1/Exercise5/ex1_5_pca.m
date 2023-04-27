@@ -59,6 +59,9 @@ axis([-3 3 -3 3]); axis square;
 [U, S] = myPCA(X_norm);
 
 %  Compute mu, the mean of each feature
+for i = 1:size(X,2)
+    mu(:,i) = mean(X_norm(:,i));
+end 
 
 %  Draw the eigenvectors centered at the mean of samples. These lines show the
 %  directions of maximum variations in the dataset.
@@ -159,7 +162,7 @@ pause;
 %  If you are applying a machine learning algorithm 
 fprintf('\nDimension reduction for face dataset.\n\n');
 
-K = 500;
+K = 200;
 Z = projectData(X_norm, U, K);
 
 fprintf('The projected data Z has a size of: ')
