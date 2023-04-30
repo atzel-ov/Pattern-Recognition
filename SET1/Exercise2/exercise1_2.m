@@ -40,8 +40,8 @@ aRatio = [aRatio_C1 aRatio_C2];
 minAspectRatio = min(aRatio);
 maxAspectRatio = max(aRatio);
 
-R1 = 50;
-R2 = 37;
+R1 = 45;
+R2 = 10;
 
 figure 
 imagesc(reshape(train_C1_images(R1,:,:),28,28))
