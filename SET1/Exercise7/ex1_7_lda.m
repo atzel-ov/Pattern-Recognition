@@ -173,7 +173,7 @@ plot(irish2_reduced(:, 1), irish2_reduced(:, 2), 'rs');
 plot(irish3_reduced(:, 1), irish3_reduced(:, 2), 'g+');
 hold off
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 NewDim = 3;
 v = myLDA(meas_norm, iris_labels, NewDim);
