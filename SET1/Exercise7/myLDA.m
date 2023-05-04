@@ -39,11 +39,12 @@ function A = myLDA(Samples, Labels, NewDim)
     end
     
 
-    
+    Sw
+    Sb
      
   
     %Eigen matrix EigMat=inv(Sw)*Sb
-    EigMat = inv(Sw)*Sb;
+    EigMat = Sw\Sb;
     
     %Perform Eigendecomposition
     [Q,L] = eig(EigMat);    
@@ -52,9 +53,11 @@ function A = myLDA(Samples, Labels, NewDim)
     %Select the NewDim eigenvectors corresponding to the top NewDim
     %eigenvalues (Assuming they are NewDim<=NumClasses-1)
 	%% You need to return the following variable correctly.
-	A=zeros(NumFeatures,NewDim);  % Return the LDA projection vectors
+	%A=zeros(NumFeatures,NewDim);  % Return the LDA projection vectors
+
+    W = Q(:,ind(1:NewDim));
     
-    A = Q(:,ind(1:NewDim));
+    A = W;
 
 
 
