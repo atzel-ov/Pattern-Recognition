@@ -8,7 +8,7 @@ Exercises for the course "Statistical Modeling and Pattern Recognition TEL 311"
 
 <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET1/Exercise1">Bayesian Decision Theory</a>, finding the decision boundary that minimizes the probability of the error.
 
-<a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET1/Exercise2">Bayesian Classification</a>, computing the aspect ratio of the digits 1 & 2 and using it as the random variable, we develop a bayesian classifier after estimating the mean and variance for each class.
+<a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET1/Exercise2">Bayesian Classification</a>, computing the aspect ratio of the digits 1 & 2 and using it as the random variable we develop a bayesian classifier.
 
 <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET1/Exercise5">Principal Component Analysis</a>, dimensionality reduction to using k-th principal dimensions of the covariance matrix.
 
