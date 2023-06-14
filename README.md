@@ -16,7 +16,7 @@ Exercises for the course "Statistical Modeling and Pattern Recognition TEL 311"
 
 <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_1">Logistic Regression</a>, finding whether a student is goint to get accepted in a university or not.
 
-<a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_2">Regression with Regularization</a>, determining if every nanochip of a manufacturing facility pass a quality test.
+<a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_2">Regression with Regularization</a>, determining if every nanochip of a manufacturing facility passes a quality test.
 
 <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_4">K-Means Clustering</a>, compressing images into 16 color clusters using the K-Means algorithm 
 
