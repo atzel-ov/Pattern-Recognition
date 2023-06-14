@@ -4,7 +4,7 @@
 
 Exercises for the course "Statistical Modeling and Pattern Recognition TEL 311"
 
-## Set of exercises 1:
+## Exercises:
 
 <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET1/Exercise1">Bayesian Decision Theory</a>, finding the decision boundary that minimizes the probability of the error.
 
