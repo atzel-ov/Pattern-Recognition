@@ -4,6 +4,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras import layers
 
 # Helper libraries
 import numpy as np
@@ -26,14 +27,38 @@ train_images = train_images / 255.0
 
 test_images = test_images / 255.0
 
-train_images_reshaped = # reshape to mum_train_images X height X width X channels, where channels = 1
-test_images_reshaped = # reshape
+train_images_reshaped = train_images.reshape(-1,28,28,1)# reshape to mum_train_images X height X width X channels, where channels = 1
+test_images_reshaped = test_images.reshape(-1,28,28,1)# reshape
 
 
 # Build the model
 # Building the neural network requires configuring the layers of the model, then compiling the model.
 
-model = # fill the model
+model = keras.Sequential([
+    # Convolution 1
+    keras.layers.Conv2D(32, (3, 3), padding='same', activation = None, input_shape=(28, 28, 1)),
+    # Convolution 2
+    keras.layers.Conv2D(32, (3, 3), padding = 'same', activation = None, input_shape = (28,28,1)),
+    # Max Pooling 1
+    keras.layers.MaxPooling2D((2,2), padding = 'valid'),
+    # Convolution 3
+    keras.layers.Conv2D(64, (3, 3), padding = 'same', activation = None, input_shape = (14,14,32)),
+    # Convolution 4
+    keras.layers.Conv2D(64, (3, 3), padding = 'same', activation = None, input_shape = (14,14,64)),
+    # Max Pooling 2
+    keras.layers.MaxPooling2D((2,2), padding = 'valid'),
+    # Convolution 5
+    keras.layers.Conv2D(128, (3, 3), padding = 'same', activation = None, input_shape = (7,7,64)),
+    # Max Pooling 3
+    keras.layers.MaxPooling2D((2,2), padding = 'valid'),
+    # Flatten
+    keras.layers.Flatten(),
+    # Dense 1
+    keras.layers.Dense(200),
+    # Dense 2
+    keras.layers.Dense(10)
+])
+# fill the model
 
 model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
