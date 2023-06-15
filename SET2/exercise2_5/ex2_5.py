@@ -16,7 +16,7 @@ class Dense():
     def forward(self, input):
         self.input = input
         # Add Code Here
-        fwd =
+        fwd = np.dot(self.weights, self.input) + self.bias
         return fwd
 
     #Backward Propagation on a Dense Layer
@@ -26,17 +26,17 @@ class Dense():
     # dE_dX is dE/dX Gradient
     def backward(self, dE_dY, learning_rate):
         # Add Code Here
-        dE_dW =
-        dE_dX =
-        dE_dB =
+        dE_dW = np.dot(dE_dY, self.input.T)
+        dE_dX = np.dot(self.weights.T, dE_dY)
+        dE_dB = dE_dY
         self.update_weights(dE_dW, dE_dB, learning_rate)
         return dE_dX
 
     # Update Layer Weights and bias
     def update_weights(self, dE_dW, dE_dB, learning_rate):
         # Add Code Here
-        self.weights =
-        self.bias =
+        self.weights -= learning_rate * dE_dW
+        self.bias -= learning_rate * dE_dB
 
 
 # Neural Network Activation Layer Abstract Class
@@ -52,13 +52,13 @@ class Activation():
     def forward(self, input):
         self.input = input
         # Add Code Here
-        Y =
+        Y = self.activation(self.input)
         return Y
 
     # Backward estimation of dE/dX using the activation prime (derivative)
     def backward(self, dE_dY, learning_rate):
         # Add Code Here
-        dE_dX =
+        dE_dX = dE_dY * self.activation_grad(self.input)
         return dE_dX
  
 
@@ -76,6 +76,7 @@ class Softmax():
 
 
 # Tanh Activation Function
+# Tanh Activation Function
 class Tanh(Activation):
     def __init__(self):
         def tanh(x):
@@ -84,7 +85,7 @@ class Tanh(Activation):
 
         def tanh_grad(x):
             # Add Code Here
-            actGrad =
+            actGrad = actGrad = 1 - (np.tanh(x))**2
             return actGrad
 
         super().__init__(tanh, tanh_grad)
@@ -96,14 +97,14 @@ class Sigmoid(Activation):
         # Logistic Activation Function
         def sigmoid(x):
             # Add Code Here
-            act =
+            act = 1/(1 + np.exp(-x))
             return act
 
         # Activation Function Gradient (Derivative)
         def sigmoid_grad(x):
             # Add Code Here
-
-            actGrad =
+            z = 1/(1 + np.exp(-x))
+            actGrad = (1-z)*z
             return actGrad
 
         super().__init__(sigmoid, sigmoid_grad)
@@ -112,23 +113,23 @@ class Sigmoid(Activation):
 # Return the the cross entropy loss
 def loss_cross_entropy(y_true, y_pred):
     # Add Code Here
-    loss =
+    loss = np.mean(-y_true * np.log(y_pred) - (1-y_true) * np.log(1-y_pred))
     return loss
 
 # Return the derivative of the cross entropy loss
 def loss_cross_entropy_grad(y_true, y_pred):
     # Add Code Here
-    lossGrad =
+    lossGrad = (y_pred-y_true)/(y_pred*(1-y_pred))
     return lossGrad
 
 def mse(y_true, y_pred):
     # Add Code Here
-    loss =
+    loss = np.mean(np.power(y_true - y_pred, 2))
     return loss
 
 def mse_grad(y_true, y_pred):
     # Add Code Here
-    lossGrad =
+    lossGrad = (2/(y_true.size))*(y_pred - y_true)
     return lossGrad
 
 def preprocess_data(x, y, limit):
