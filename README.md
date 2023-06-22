@@ -1,4 +1,4 @@
-# Pattern Recognition - TEL311
+# Statistical Modelling & Pattern Recognition - TEL311
 
 ![image](https://user-images.githubusercontent.com/83914255/233071515-50263301-68b3-4bc9-944e-5cbf201d2a70.png)
 
