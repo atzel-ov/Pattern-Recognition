@@ -22,6 +22,6 @@ Exercises for the course "Statistical Modeling and Pattern Recognition TEL 311"
 
 >   <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_5">Artificial Neural Network</a> - building a NN from scratch, then using it for classification of the MNIST-digits dataset
 
->   <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_6">Convolutional Neural Network</a> - testing different optimizers and various architectures using Tensorflow/Keras, for classification of the MNIST-fashion dataset
+>   <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_6">Convolutional Neural Network</a> - testing different optimizers and various architectures for classification of the MNIST-fashion dataset, using Tensorflow/Keras 
 
 
