@@ -10,6 +10,7 @@ m = length(y); % number of training examples
 % You need to return the following variables correctly 
 J = 0;
 grad = zeros(size(theta));
+reg = 0;
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
@@ -20,9 +21,13 @@ grad = zeros(size(theta));
 h_theta = sigmoid(X*theta);
 cross_entropy = -y.*log(h_theta)-(1-y).*log(1-h_theta);
 
-J = (1/m)*sum(cross_entropy);
+reg = (lambda/(2*m))*sum(theta(2:size(theta,1),1).^2);
 
-for j = 1:size(theta,1)
+J = (1/m)*sum(cross_entropy) + reg;
+
+grad(1,1) = ((1/m)*sum((h_theta-y).*X(:,1)));
+
+for j = 2:size(theta,1)
     grad(j,1) = (1/m)*sum((h_theta-y).*X(:,j)) + (lambda/m)*theta(j,1);
 end
 
