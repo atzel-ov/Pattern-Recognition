@@ -85,7 +85,7 @@ class Tanh(Activation):
 
         def tanh_grad(x):
             # Add Code Here
-            actGrad = actGrad = 1 - (np.tanh(x))**2
+            actGrad = 1 - (np.tanh(x))**2
             return actGrad
 
         super().__init__(tanh, tanh_grad)
