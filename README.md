@@ -14,7 +14,7 @@ Exercises for the course "Statistical Modeling and Pattern Recognition TEL 311"
 
 >   <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET1/Exercise7">Fisher's Linear Discriminant</a> - optimal dimensionality reduction for maximizing the difference between the class means and minimizing the variances
 
->   <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_1">Logistic Regression</a> - finding whether a student is goint to get accepted in a university or not
+>   <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_1">Logistic Regression</a> - finding whether a student is going to get accepted in a university or not
 
 >   <a href = "https://github.com/atzel-ov/PatternRecognition/tree/main/SET2/exercise2_2">Regression with Regularization</a> - determining if every nanochip of a manufacturing facility passes a quality test
 
